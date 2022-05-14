@@ -7,6 +7,14 @@
 
 import Foundation
 
-class IAPManager {
+final class IAPManager {
+    
+    static let shared = IAPManager()
+    
+    private init(){}
+
+    func subscribe() {
+        
+    }
     
 }

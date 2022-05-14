@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>479099680435-dvhrr39sgviqna298gel80ai6vkhog5e.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.479099680435-dvhrr39sgviqna298gel80ai6vkhog5e</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDrwWLuhynN3PHDjlndYrLjvMu1ZBWs5zw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>479099680435</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>amanda-detofol-constante.Blogging-App</string>
+	<key>PROJECT_ID</key>
+	<string>blogging-app-34bf8</string>
+	<key>STORAGE_BUCKET</key>
+	<string>blogging-app-34bf8.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:479099680435:ios:fb978d1c0617b761b022c6</string>
+</dict>
+</plist>
