@@ -9,6 +9,7 @@ import UIKit
 
 class SignInViewController: UIViewController {
     
+    private let authManager =  AuthManager()
     private lazy var signInView = SignInView()
     
     override func viewDidLoad() {
@@ -28,11 +29,23 @@ class SignInViewController: UIViewController {
 extension SignInViewController: SignInViewDelegate {
     
     func handleSignInButtonTap() {
-        print("One")
+        guard let email = signInView.getEmailData(),
+              let password = signInView.getPasswordData() else {
+            return
+        }
+        
+        authManager.signIn(email: email, password: password) { success in
+            if success {
+                let tabBarController = TabBarController()
+                tabBarController.modalPresentationStyle = .fullScreen
+                self.present(tabBarController, animated: true)
+            }
+        }
     }
     
     func handleNotAnUserAlreadyButtonTap() {
-        print("222")
+        let signUpViewController = SignUpViewController()
+        self.navigationController?.pushViewController(signUpViewController, animated: true)
     }
     
     

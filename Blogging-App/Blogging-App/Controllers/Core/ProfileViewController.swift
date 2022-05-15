@@ -9,6 +9,8 @@ import UIKit
 
 class ProfileViewController: UIViewController{
     
+    private let authManager =  AuthManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupView()
@@ -32,7 +34,14 @@ class ProfileViewController: UIViewController{
 extension ProfileViewController {
     
     @objc func handleSignOutButtonTap(){
-        
+        authManager.signOut { sucess in
+            if sucess {
+                self.dismiss(animated: true)
+                let signInViewController = SignInViewController()
+                signInViewController.modalPresentationStyle = .fullScreen
+                self.navigationController?.pushViewController(signInViewController, animated: true )
+            }
+        }
     }
     
 }

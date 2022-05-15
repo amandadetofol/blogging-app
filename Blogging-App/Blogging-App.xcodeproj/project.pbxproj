@@ -53,6 +53,7 @@
 		A68F250828319E070076C88A /* BlogPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68F250728319E070076C88A /* BlogPost.swift */; };
 		A68F250A2831A4CB0076C88A /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68F25092831A4CB0076C88A /* SignInView.swift */; };
 		A68F250D2831A7B70076C88A /* SignInHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68F250C2831A7B70076C88A /* SignInHeaderView.swift */; };
+		A68F25102831BC0F0076C88A /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68F250F2831BC0F0076C88A /* SignUpView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +77,7 @@
 		A68F250728319E070076C88A /* BlogPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogPost.swift; sourceTree = "<group>"; };
 		A68F25092831A4CB0076C88A /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		A68F250C2831A7B70076C88A /* SignInHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInHeaderView.swift; sourceTree = "<group>"; };
+		A68F250F2831BC0F0076C88A /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 		A642231B282F064200FEDFA6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A68F250E2831BBFB0076C88A /* SignUp */,
 				A68F250B2831A7A60076C88A /* SignIn */,
 				A6422311282F03FB00FEDFA6 /* LaunchScreen.storyboard */,
 			);
@@ -237,6 +240,14 @@
 				A68F250C2831A7B70076C88A /* SignInHeaderView.swift */,
 			);
 			path = SignIn;
+			sourceTree = "<group>";
+		};
+		A68F250E2831BBFB0076C88A /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				A68F250F2831BC0F0076C88A /* SignUpView.swift */,
+			);
+			path = SignUp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -356,6 +367,7 @@
 				A68F250A2831A4CB0076C88A /* SignInView.swift in Sources */,
 				A642232B282F09F200FEDFA6 /* CreateNewPostViewController.swift in Sources */,
 				A6422331282F0A9000FEDFA6 /* AuthManager.swift in Sources */,
+				A68F25102831BC0F0076C88A /* SignUpView.swift in Sources */,
 				A68F250828319E070076C88A /* BlogPost.swift in Sources */,
 				A6422324282F093A00FEDFA6 /* SignInViewController.swift in Sources */,
 				A6422307282F03F900FEDFA6 /* AppDelegate.swift in Sources */,
