@@ -8,17 +8,13 @@
 import Foundation
 import FirebaseAuth
 
-final class AuthManager {
-    
-    private let shared = AuthManager()
+class AuthManager {
     
     private let auth = Auth.auth()
     
     public var isSignedIn: Bool {
         return auth.currentUser != nil
     }
-    
-    private init(){}
     
     public func signUp(email: String,
                        password: String,

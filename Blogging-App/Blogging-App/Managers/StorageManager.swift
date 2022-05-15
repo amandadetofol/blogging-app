@@ -12,8 +12,32 @@ final class StorageManager{
     
     static let shared = StorageManager()
     
-    private let database = Storage.storage()
+    private let container = Storage.storage().reference()
     
     private init(){}
+    
+    public func uploadUserProfilePicture(email: String,
+                                         image: UIImage?,
+                                         completion: @escaping(Bool)->Void) {
+        
+        
+    }
+    
+    
+    public func downloadProfilePictureUrl(user: User, completion: @escaping(URL?)->Void){
+        
+    }
+    
+    public func uploadUserPostHeaderPicture(image: UIImage?,
+                                            blogPost: BlogPost,
+                                            completion: @escaping(Bool)->Void) {
+        
+        
+    }
+    
+    
+    public func downloadPostHeaderPictureUrl(blogPost: BlogPost, completion: @escaping(URL?)->Void){
+        
+    }
     
 }

@@ -50,6 +50,8 @@
 		A68F24FF282F249A0076C88A /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = A68F24FE282F249A0076C88A /* FirebaseStorage */; };
 		A68F2501282F249A0076C88A /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = A68F2500282F249A0076C88A /* FirebaseStorageCombine-Community */; };
 		A68F2504282F27C10076C88A /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = A68F2503282F27C10076C88A /* RevenueCat */; };
+		A68F250628319DF80076C88A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68F250528319DF80076C88A /* User.swift */; };
+		A68F250828319E070076C88A /* BlogPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68F250728319E070076C88A /* BlogPost.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +72,8 @@
 		A6422330282F0A9000FEDFA6 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		A6422332282F0AB100FEDFA6 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		A68F24C9282F23850076C88A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A68F250528319DF80076C88A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A68F250728319E070076C88A /* BlogPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogPost.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +176,8 @@
 		A642231D282F065600FEDFA6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A68F250528319DF80076C88A /* User.swift */,
+				A68F250728319E070076C88A /* BlogPost.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -327,6 +333,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A68F250628319DF80076C88A /* User.swift in Sources */,
 				A642232D282F0A3900FEDFA6 /* IAPManager.swift in Sources */,
 				A6422326282F096700FEDFA6 /* SignUpViewController.swift in Sources */,
 				A642232F282F0A6B00FEDFA6 /* DatabaseManager.swift in Sources */,
@@ -337,6 +344,7 @@
 				A642230B282F03F900FEDFA6 /* HomeViewController.swift in Sources */,
 				A642232B282F09F200FEDFA6 /* CreateNewPostViewController.swift in Sources */,
 				A6422331282F0A9000FEDFA6 /* AuthManager.swift in Sources */,
+				A68F250828319E070076C88A /* BlogPost.swift in Sources */,
 				A6422324282F093A00FEDFA6 /* SignInViewController.swift in Sources */,
 				A6422307282F03F900FEDFA6 /* AppDelegate.swift in Sources */,
 			);
