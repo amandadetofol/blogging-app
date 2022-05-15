@@ -17,7 +17,6 @@
 		A6422326282F096700FEDFA6 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6422325282F096700FEDFA6 /* SignUpViewController.swift */; };
 		A6422328282F099E00FEDFA6 /* ViewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6422327282F099E00FEDFA6 /* ViewPostViewController.swift */; };
 		A642232B282F09F200FEDFA6 /* CreateNewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A642232A282F09F200FEDFA6 /* CreateNewPostViewController.swift */; };
-		A642232D282F0A3900FEDFA6 /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A642232C282F0A3900FEDFA6 /* IAPManager.swift */; };
 		A642232F282F0A6B00FEDFA6 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A642232E282F0A6B00FEDFA6 /* DatabaseManager.swift */; };
 		A6422331282F0A9000FEDFA6 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6422330282F0A9000FEDFA6 /* AuthManager.swift */; };
 		A6422333282F0AB100FEDFA6 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6422332282F0AB100FEDFA6 /* StorageManager.swift */; };
@@ -52,6 +51,8 @@
 		A68F2504282F27C10076C88A /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = A68F2503282F27C10076C88A /* RevenueCat */; };
 		A68F250628319DF80076C88A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68F250528319DF80076C88A /* User.swift */; };
 		A68F250828319E070076C88A /* BlogPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68F250728319E070076C88A /* BlogPost.swift */; };
+		A68F250A2831A4CB0076C88A /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68F25092831A4CB0076C88A /* SignInView.swift */; };
+		A68F250D2831A7B70076C88A /* SignInHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68F250C2831A7B70076C88A /* SignInHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,13 +68,14 @@
 		A6422325282F096700FEDFA6 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		A6422327282F099E00FEDFA6 /* ViewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPostViewController.swift; sourceTree = "<group>"; };
 		A642232A282F09F200FEDFA6 /* CreateNewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewPostViewController.swift; sourceTree = "<group>"; };
-		A642232C282F0A3900FEDFA6 /* IAPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
 		A642232E282F0A6B00FEDFA6 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		A6422330282F0A9000FEDFA6 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		A6422332282F0AB100FEDFA6 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		A68F24C9282F23850076C88A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A68F250528319DF80076C88A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A68F250728319E070076C88A /* BlogPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogPost.swift; sourceTree = "<group>"; };
+		A68F25092831A4CB0076C88A /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		A68F250C2831A7B70076C88A /* SignInHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 		A642231B282F064200FEDFA6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A68F250B2831A7A60076C88A /* SignIn */,
 				A6422311282F03FB00FEDFA6 /* LaunchScreen.storyboard */,
 			);
 			path = Views;
@@ -185,7 +188,6 @@
 		A642231E282F066200FEDFA6 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				A642232C282F0A3900FEDFA6 /* IAPManager.swift */,
 				A642232E282F0A6B00FEDFA6 /* DatabaseManager.swift */,
 				A6422330282F0A9000FEDFA6 /* AuthManager.swift */,
 				A6422332282F0AB100FEDFA6 /* StorageManager.swift */,
@@ -226,6 +228,15 @@
 				A642232A282F09F200FEDFA6 /* CreateNewPostViewController.swift */,
 			);
 			path = Post;
+			sourceTree = "<group>";
+		};
+		A68F250B2831A7A60076C88A /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				A68F25092831A4CB0076C88A /* SignInView.swift */,
+				A68F250C2831A7B70076C88A /* SignInHeaderView.swift */,
+			);
+			path = SignIn;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,14 +345,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				A68F250628319DF80076C88A /* User.swift in Sources */,
-				A642232D282F0A3900FEDFA6 /* IAPManager.swift in Sources */,
 				A6422326282F096700FEDFA6 /* SignUpViewController.swift in Sources */,
 				A642232F282F0A6B00FEDFA6 /* DatabaseManager.swift in Sources */,
 				A6422333282F0AB100FEDFA6 /* StorageManager.swift in Sources */,
+				A68F250D2831A7B70076C88A /* SignInHeaderView.swift in Sources */,
 				A6422320282F08B300FEDFA6 /* ProfileViewController.swift in Sources */,
 				A6422328282F099E00FEDFA6 /* ViewPostViewController.swift in Sources */,
 				A6422322282F090B00FEDFA6 /* TabBarController.swift in Sources */,
 				A642230B282F03F900FEDFA6 /* HomeViewController.swift in Sources */,
+				A68F250A2831A4CB0076C88A /* SignInView.swift in Sources */,
 				A642232B282F09F200FEDFA6 /* CreateNewPostViewController.swift in Sources */,
 				A6422331282F0A9000FEDFA6 /* AuthManager.swift in Sources */,
 				A68F250828319E070076C88A /* BlogPost.swift in Sources */,

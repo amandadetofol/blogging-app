@@ -9,6 +9,8 @@ import UIKit
 
 class SignInViewController: UIViewController {
     
+    private lazy var signInView = SignInView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupView()
@@ -17,7 +19,21 @@ class SignInViewController: UIViewController {
     //MARK: Private methods
     private func setupView(){
         self.title = "Sign In"
-        self.view.backgroundColor = .systemBackground
+        signInView.delegate = self
+        self.view = signInView
     }
+    
+}
+
+extension SignInViewController: SignInViewDelegate {
+    
+    func handleSignInButtonTap() {
+        print("One")
+    }
+    
+    func handleNotAnUserAlreadyButtonTap() {
+        print("222")
+    }
+    
     
 }
