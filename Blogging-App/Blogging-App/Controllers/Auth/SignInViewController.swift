@@ -36,6 +36,7 @@ extension SignInViewController: SignInViewDelegate {
         
         authManager.signIn(email: email, password: password) { success in
             if success {
+                UserDefaults.standard.set(email, forKey: "email")
                 let tabBarController = TabBarController()
                 tabBarController.modalPresentationStyle = .fullScreen
                 self.present(tabBarController, animated: true)

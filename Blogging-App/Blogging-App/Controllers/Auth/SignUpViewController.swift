@@ -47,6 +47,7 @@ extension SignUpViewController: SignUpViewDelegate {
                                                   profilePictureUrl: nil)) { sucess in
                     if sucess {
                         DispatchQueue.main.async {
+                            UserDefaults.standard.set(email, forKey: "email")
                             let tabBarController = TabBarController()
                             tabBarController.modalPresentationStyle = .fullScreen
                             self.present(tabBarController, animated: true)

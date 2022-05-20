@@ -20,10 +20,10 @@ class TabBarController: UITabBarController {
     }()
     
     private let profileViewController: ProfileViewController = {
-        let profile = ProfileViewController()
+        let profile = ProfileViewController(currentEmail: UserDefaults.standard.string(forKey: "email") ?? "")
         profile.title = "Profile"
         profile.navigationItem.largeTitleDisplayMode = .always
-        profile.tabBarItem = UITabBarItem(title: "Home",
+        profile.tabBarItem = UITabBarItem(title: "Profile",
                                        image: UIImage(systemName: "person.circle"),
                                        tag: 0)
         return profile
