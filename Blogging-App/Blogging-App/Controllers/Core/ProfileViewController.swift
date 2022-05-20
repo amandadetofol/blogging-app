@@ -33,6 +33,7 @@ class ProfileViewController: UIViewController{
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         self.postsTableView.frame = self.view.bounds
+        self.fetchProfileData()
     }
     
     override func viewDidLoad() {
@@ -43,6 +44,10 @@ class ProfileViewController: UIViewController{
     }
     
     // MARK: Private methods
+    private func fetchProfileData(){
+        
+    }
+    
     private func addHeaderViewToTable(){
         let headerView = ProfileHeaderView()
         headerView.frame  = CGRect(x: 0, y: 0, width: self.view.bounds.width + 50, height: self.view.bounds.width + 50)

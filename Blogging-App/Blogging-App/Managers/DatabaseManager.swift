@@ -25,16 +25,16 @@ final class DatabaseManager {
     }
     
     public func getPosts( for user: User,
-                                completion: @escaping ([String]) -> Void) {
+                          completion: @escaping ([String]) -> Void) {
         
     }
     
     public func insert(user: User,
-                           completion: @escaping (Bool) -> Void) {
+                       completion: @escaping (Bool) -> Void) {
         
         let userReference = user.email
-                                .replacingOccurrences(of: ".", with: "_")
-                                .replacingOccurrences(of: "@", with: "_")
+            .replacingOccurrences(of: ".", with: "_")
+            .replacingOccurrences(of: "@", with: "_")
         
         let data = [
             "email":user.email,
@@ -47,6 +47,27 @@ final class DatabaseManager {
             .setData(data) { error in
                 completion(error == nil)
             }
+    }
+    
+    public func getUser(email: String, completion: @escaping(User?) -> Void) {
+        let documentId = email
+            .replacingOccurrences(of: ".", with: "_")
+            .replacingOccurrences(of: "@", with: "_")
+        
+        database
+            .collection("users")
+            .document(documentId)
+            .getDocument { document, error in
+                guard let data = document?.data() as? [String: String],
+                      let name = data["name"],
+                      error == nil else {
+                        return
+                    }
+                let user = User(name: name, email: email, profilePictureUrl: nil)
+                completion(user)
+            }
+        
+        
     }
     
 }
