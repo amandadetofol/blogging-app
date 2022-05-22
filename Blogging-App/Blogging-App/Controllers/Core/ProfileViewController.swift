@@ -23,6 +23,7 @@ class ProfileViewController: UIViewController{
     private let authManager =  AuthManager()
     private let databaseManagaer = DatabaseManager()
     private let storageManager = StorageManager.shared
+    private let userBlogPosts: [BlogPost] = []
     
     init(currentEmail: String){
         self.currentEmail = currentEmail
@@ -98,13 +99,13 @@ class ProfileViewController: UIViewController{
 }
 
 extension ProfileViewController: UITableViewDelegate {
-    
+
 }
 
 extension ProfileViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return self.userBlogPosts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -113,7 +114,16 @@ extension ProfileViewController: UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let viewPostController = ViewPostViewController()
+        viewPostController.title = userBlogPosts[indexPath.row].title
+        self.navigationController?.pushViewController(viewPostController, animated: true)
+    }
     
+    private func getBlogPosts(){
+        
+    }
 }
 
 extension ProfileViewController {
