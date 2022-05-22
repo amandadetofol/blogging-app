@@ -14,11 +14,15 @@ class ProfileViewController: UIViewController{
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cellId")
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.isUserInteractionEnabled = true
         return tableView
     }()
     
+    private var user: User?
     private let currentEmail: String
     private let authManager =  AuthManager()
+    private let databaseManagaer = DatabaseManager()
+    private let storageManager = StorageManager.shared
     
     init(currentEmail: String){
         self.currentEmail = currentEmail
@@ -33,25 +37,41 @@ class ProfileViewController: UIViewController{
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         self.postsTableView.frame = self.view.bounds
-        self.fetchProfileData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupView()
         self.setupNavigationController()
-        self.addHeaderViewToTable()
+        self.fetchProfileData()
     }
     
     // MARK: Private methods
     private func fetchProfileData(){
-        
+        databaseManagaer.getUser(email: currentEmail) { user in
+            guard let profileReference = user?.profilePictureRef,
+                  let fullName = user?.name else {
+                return
+            }
+            self.user = user
+            DispatchQueue.main.async {
+                self.addHeaderViewToTable(image: profileReference, fullName: fullName)
+            }
+        }
     }
     
-    private func addHeaderViewToTable(){
+    private func addHeaderViewToTable(image: String, fullName: String){
         let headerView = ProfileHeaderView()
+        headerView.isUserInteractionEnabled = true
         headerView.frame  = CGRect(x: 0, y: 0, width: self.view.bounds.width + 50, height: self.view.bounds.width + 50)
-        headerView.configure(image: "", fullName: "Teste", email: self.currentEmail)
+        
+        
+        storageManager.downloadProfilePictureUrl(path: image) { url in
+            guard let url = url else { return }
+            
+            headerView.configure(imageUrl: url, fullName: fullName, email: self.currentEmail)
+            
+        }
         postsTableView.tableHeaderView = headerView
     }
     
@@ -64,6 +84,15 @@ class ProfileViewController: UIViewController{
                                                                  style: .done,
                                                                  target: self,
                                                                  action: #selector(handleSignOutButtonTap))
+        
+        guard let myEmail = UserDefaults.standard.string(forKey: "email"),
+              myEmail == currentEmail else {
+            return
+        }
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Edit Profile",
+                                                                style: .done,
+                                                                target: self,
+                                                                action: #selector(handleImageUpload))
     }
     
 }
@@ -84,6 +113,45 @@ extension ProfileViewController: UITableViewDataSource {
         return cell
     }
     
+    
+}
+
+extension ProfileViewController {
+    
+    @objc func handleImageUpload() {
+        let picker = UIImagePickerController()
+        picker.sourceType = .photoLibrary
+        picker.delegate = self
+        picker.allowsEditing = true
+        self.present(picker, animated: true, completion: nil )
+    }
+    
+}
+
+extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true)
+        guard let image = info[.editedImage] as? UIImage else { return }
+        storageManager.uploadUserProfilePicture(email: self.currentEmail,
+                                                image: image) { succeed in
+            if succeed {
+                //update database
+                self.databaseManagaer.updateProfilePhoto(email: self.currentEmail) { succeed in
+                    if succeed {
+                        DispatchQueue.main.async {
+                            self.fetchProfileData()
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
     
 }
 

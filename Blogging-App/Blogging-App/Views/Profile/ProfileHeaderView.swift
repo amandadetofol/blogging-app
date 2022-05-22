@@ -47,10 +47,15 @@ class ProfileHeaderView: UIView {
         super.init(coder: coder)
     }
     
-    func configure(image: String, fullName: String, email: String){
-        // do aditional setup for image
+    func configure(imageUrl: URL, fullName: String, email: String){
         self.fullNameLabel.text = fullName
         self.emailLabel.text = email
+        
+        URLSession.shared.dataTask(with: imageUrl) { data, response, error in
+            guard let data = data, error == nil else { return }
+            self.profileImage.image = UIImage(data: data)
+        }.resume()
+        
     }
     
     //MARK: Private methods

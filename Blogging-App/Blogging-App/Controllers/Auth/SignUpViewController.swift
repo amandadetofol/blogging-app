@@ -44,7 +44,7 @@ extension SignUpViewController: SignUpViewDelegate {
             if sucess {
                 self.databaseManager.insert(user: User(name: name,
                                                   email: email,
-                                                  profilePictureUrl: nil)) { sucess in
+                                                  profilePictureRef: nil)) { sucess in
                     if sucess {
                         DispatchQueue.main.async {
                             UserDefaults.standard.set(email, forKey: "email")

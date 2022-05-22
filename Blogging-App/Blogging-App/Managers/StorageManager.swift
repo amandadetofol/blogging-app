@@ -12,7 +12,7 @@ final class StorageManager{
     
     static let shared = StorageManager()
     
-    private let container = Storage.storage().reference()
+    private let container = Storage.storage()
     
     private init(){}
     
@@ -20,12 +20,30 @@ final class StorageManager{
                                          image: UIImage?,
                                          completion: @escaping(Bool)->Void) {
         
+        let path = email
+            .replacingOccurrences(of: "@", with: "_")
+            .replacingOccurrences(of: ".", with: "_")
+        
+        guard let pngData = image?.pngData() else { return }
+        
+        container
+            .reference(withPath: "profile_pictures/\(path)/photo.png")
+            .putData(pngData) { storageMetadata, error in
+                guard error == nil, storageMetadata != nil else {
+                    completion(false)
+                    return 
+                }
+                completion(true)
+            }
         
     }
     
     
-    public func downloadProfilePictureUrl(user: User, completion: @escaping(URL?)->Void){
-        
+    public func downloadProfilePictureUrl(path: String, completion: @escaping(URL?)->Void){
+        container.reference(withPath: path)
+            .downloadURL { url, _ in
+                completion(url)
+            }
     }
     
     public func uploadUserPostHeaderPicture(image: UIImage?,

@@ -61,13 +61,39 @@ final class DatabaseManager {
                 guard let data = document?.data() as? [String: String],
                       let name = data["name"],
                       error == nil else {
-                        return
-                    }
-                let user = User(name: name, email: email, profilePictureUrl: nil)
+                    return
+                }
+                let reference: String? = data["profile_photo"]
+                let user = User(name: name, email: email, profilePictureRef: reference)
                 completion(user)
             }
+    }
+    
+    public func updateProfilePhoto(email: String, completion: @escaping(Bool) -> Void){
+        let path = email
+            .replacingOccurrences(of: "@", with: "_")
+            .replacingOccurrences(of: ".", with: "_")
         
+        let photoReference = "profile_pictures/\(path)/photo.png"
         
+        let databaseReference = database
+            .collection("users")
+            .document(email)
+        
+        databaseReference.getDocument { documentSnapshot, error in
+            guard var data = documentSnapshot?.data(), error == nil else {
+                return
+            }
+            data["profile_photo"] = photoReference
+            databaseReference.setData(data) { error in
+                if let error = error {
+                    completion(false)
+                    return
+                }
+                completion(true)
+            }
+        }
     }
     
 }
+
